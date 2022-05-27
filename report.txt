@@ -1,0 +1,19 @@
+
+
+The inputs are parsed via the input file.
+
+The scripts required to use a user inputs instead has also been inlucded but commented out.
+
+The idea of inserting a smaller array (i.e., pizzaria regions) into a larger (i.e grid) draws inspiration from concept of placing a mask over an image.
+The N x N grid is an array of zeros.
+
+A smaller set of arrays is generated for each pizzaria and it associated delivery region.
+
+The pizzaria location and delivery retion is a mask of ones.
+
+The concept of broadcasting is used to generate a region in the desired shape.
+
+The primary challenged faced when inserting a smaller array into a larger one at a particular location is that areas of the smaller region (i.e parts of the mask) may need to exist outside the
+area of the larger array.
+
+
