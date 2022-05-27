@@ -1,19 +1,22 @@
+The provided information is parsed via the input file using the structure presented.
+The scripts for a user-based input approach is also included but commented out.
+A debugging error message for mismatches between N and the provided number of points is also commented out.
 
+The scripts takes the given pizzeria positions and delivery distance to generate the delivery region.
+ - The concept of broadcasting is used to generate a region in the desired shape.
+ - The center of the shape is the location of the pizzeria.
+ - The delivery region is based on the delivery distance from the center. 
+ - The size of the array is based on the maximum delivery distance from the center, therefore, depending on the location and delivery range the pizzeria array can be smaller or larger than the grid. 
 
-The inputs are parsed via the input file.
+Each pizzeria is dealt with separately.
+ - A smaller set of arrays is generated for each pizzeria with its associated delivery region.
+ - Initially, a N x N grid is an array of zeros is generated for each pizzeria (i.e., the grid).
+ - The pizzeria location and deliverable tiles have an integer value of one in the mask.
+ - The idea of inserting a smaller array (i.e., pizzeria regions) into a larger (i.e., grid) draws inspiration from the concept of placing a mask over an image.
 
-The scripts required to use a user inputs instead has also been inlucded but commented out.
+Sometimes the mask may exist outside the boundaries of the image depending on the center of the mask (i.e., the pizzeria location).
+ -The primary challenge of this problem was addressing the aforementioned instance when regions of the masks exist outside the grid.
 
-The idea of inserting a smaller array (i.e., pizzaria regions) into a larger (i.e grid) draws inspiration from concept of placing a mask over an image.
-The N x N grid is an array of zeros.
-
-A smaller set of arrays is generated for each pizzaria and it associated delivery region.
-
-The pizzaria location and delivery retion is a mask of ones.
-
-The concept of broadcasting is used to generate a region in the desired shape.
-
-The primary challenged faced when inserting a smaller array into a larger one at a particular location is that areas of the smaller region (i.e parts of the mask) may need to exist outside the
-area of the larger array.
-
-
+Once a grid is generated for each pizzeria, it must be rotated to shift the origin to the bottom left corner.
+After appropriate orientation, because each array constitutes of zeros and ones they can simply be summed together to find the resultant grid.
+Finally, the maximum value of the array (i.e., the location with the highest number of potential deliveries) is located.
